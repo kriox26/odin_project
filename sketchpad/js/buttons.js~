@@ -26,14 +26,24 @@ $(document).ready(function(){
 		});
 	//here starts the actual grid program
 	drawGrid(16);
+	randomColors();
 });
 //draw SIZE squares on the grid
 function drawGrid(size){
-	endgrid = Math.floor(Math.sqrt((600 * 600)/(size * size)));
+	endgrid = Math.round(Math.sqrt((600 * 600)/(size * size)));
 	for (var i = 0; i < size; i++) {
-		$("#grid").append('<div class="column"'+i+'; style="display:inline-block;"></div>');
+		$("#grid").append('<div class="column"'+i+'; style="display:inline-block;">');
 		for (var j = 0; j < size; j++) {
-			$(".column" + i).append('<div class="square" style="height:'+endgrid+'px; width:'+endgrid+'px;"></div>');
+			$(".column" + i).append('<div class="square" style="height:'+endgrid+'px; width:'+endgrid+'px;">');
 		};
 	};
-}
+};
+
+function randomColors(){
+	$(".square").hoover(function(){
+		firstColor = Math.round(Math.random() * 256);
+		secondColor = Math.round(Math.random() * 256);
+		thirdColor = Math.round(Math.random() * 256);
+		$(this).css("background-color","rgb("+ color1 + "," + color2 + "," + color3 + ")");
+	});
+};

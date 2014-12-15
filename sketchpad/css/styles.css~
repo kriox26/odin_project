@@ -1,10 +1,13 @@
-#middle{
+#grid{
 	margin-left: auto;
 	margin-right: auto;
 	width: 600px;
 	height: 600px;
 	border-radius: 5px;
 	background-color: #D0D0D0;
+}
+.square{
+	background-color: #660099;
 }
 #top{
 	width: 250px;	
@@ -31,6 +34,9 @@ a{
 	padding: auto;
 	margin-top: 30px;
 }
+ul{
+	list-style-type: none;
+}
 .botons1{
 	margin-left: 5px;
 	color: #FFFFFF;
@@ -43,10 +49,6 @@ a{
 	background-color: #6699FF;
 	text-align: center;
 	opacity: 0.75;
-}
-.square{
-	background-color: #FFFFFF;
-	margin: 1px;
 }
 .footer{
 	text-align: center;
