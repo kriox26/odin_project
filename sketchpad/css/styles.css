@@ -5,22 +5,45 @@
 	.heading{
 		font-size: 32px;
 		color: #9900FF;
+		width: 420px;
+		position:relative;
+		left:36%;
+		margin-bottom:20px;
+		margin-top: 5px;
+		text-align:center;
+		height: 100px;
+		border-radius: 110px 110px 0 0;
+		-moz-border-radius: 110px 110px 0 0;
+		-webkit-border-radius: 110px 110px 110px 110px;
+		-webkit-transition: all 0.1s ease-in;
+		background-color: #909090;
+		opacity: 0.5;
+	}
+	.heading > p{
+		padding-top:30px;
 	}
 /*Navigation bar*/
 	.navbar{
 		list-style-type: none;
 		display:block;
+		position: relative;
 		margin-left: auto;
 		text-align:center;
 		margin-right: auto;
 	}
+	ul{
+		position: relative;
+		left: 25%;
+	}
 	li {
 		margin: 5px 5px 5px 5px;
 		display:inline;
+		position:relative;
 	}
 	a{
 		width: 150px;
 		height: 30px;
+		position:relative;
 		border-radius: 6px;
 		background-color: #330099;
 		padding-top: 5px;
@@ -31,6 +54,12 @@
 		margin-left: 5px;
 		margin-right: 5px;
 		text-align:center;
+	}
+/*Second navbar*/
+	.second-navbar{
+		margin-top: 30px;
+		left:12%;
+		position:relative;
 	}
 /*Footer styles*/
 	#footer{
