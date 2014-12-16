@@ -1,0 +1,36 @@
+/*Navigation bar*/
+	.navbar{
+		list-style-type: none;
+		display:block;
+		margin-left: auto;
+		text-align:center;
+		margin-right: auto;
+	}
+	li {
+		margin: 5px 5px 5px 5px;
+		display:inline;
+	}
+	a{
+		width: 150px;
+		height: 30px;
+		border-radius: 6px;
+		background-color: #330099;
+		padding-top: 5px;
+		text-decoration: none;
+		opacity: 0.5;
+		color: #FFFFFF;
+		float:left;
+		margin-left: 5px;
+		margin-right: 5px;
+		text-align:center;
+		font-family: Verdana;
+	}
+/*Footer styles*/
+	.footer{
+		text-align:center;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	i{
+		color: #0033FF;
+	}

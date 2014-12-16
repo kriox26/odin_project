@@ -1,0 +1,26 @@
+$(document).ready(function(){
+	$("#buttonb").mouseover(function(){
+		$("#buttonb").fadeTo('fast',1);
+	});
+	$("#buttong").mouseover(function(){
+		$("#buttong").fadeTo('fast',1);
+	});
+	$("#buttonc").mouseover(function(){
+		$("#buttonc").fadeTo('fast',1);
+	});
+	$("#buttont").mouseover(function(){
+		$("#buttont").fadeTo('fast',1);
+	});
+	$("#buttonb").mouseleave(function(){
+		$("#buttonb").fadeTo('fast',0.5);
+	});
+	$("#buttong").mouseleave(function(){
+		$("#buttong").fadeTo('fast',0.5);
+	});
+	$("#buttonc").mouseleave(function(){
+		$("#buttonc").fadeTo('fast',0.5);
+	});
+	$("#buttont").mouseleave(function(){
+		$("#buttont").fadeTo('fast',0.5);
+	});
+});
