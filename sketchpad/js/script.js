@@ -44,8 +44,14 @@ $(document).ready(function(){
 		});
 	//grid program starts here	
 	buildGrid(24);
+	defaultPaint();
 });
 
+function squares(){
+	x = prompt("How many squares per side?(1-64)");
+	$(".square").remove();
+	return x;
+}
 
 function buildGrid(size){
 	sqrw = Math.floor(960/size)-4;
@@ -55,7 +61,6 @@ function buildGrid(size){
 	};
 	$(".square").css("width",sqrw);
 	$(".square").css("height",sqrh);
-	defaultPaint();
 }
 
 function defaultPaint(){
@@ -65,15 +70,31 @@ function defaultPaint(){
 };
 
 function clearGrid(){
-	x = prompt("How many squares per side?(1-64)");
-	$(".square").remove();
+	x = squares();
 	buildGrid(x)
+	defaultPaint();
 }
 
+function greyPaint(){
+	x= squares();
+	buildGrid(x);
+	$(".square").mouseover(function(){
+		$(this).css("background-color",'grey');
+	});
+};
 
-
-
-
+function colorPaint(){
+	x = squares();
+	buildGrid(x);
+	redColor = Math.floor(Math.random()*256);
+	blueColor = Math.floor(Math.random()*256)
+	greenColor = Math.floor(Math.random()*256)
+	color = "#" + redColor.toHex() + greenColor.toHex() + blueColor.toHex();
+	window.alert(color);
+	$(".square").mouseover(function(){
+		$(this).css("background-color",color);
+	});
+};
 
 
 

@@ -76,11 +76,12 @@
 		margin-left: auto;
 		margin-right:auto;
 		/*display: block;*/
-		background-color: #404040;
+		border-color: 'black';
+		border:2px;
 		clear: left;
 	}
 	.square{
-		background-color: #808080;
+		background-color: #330099;
 		margin: 0px;
 		margin-left: 2px;
 		margin-right:2px;
