@@ -36,6 +36,7 @@ $(document).ready(function(){
 
 function numberSquares(){
 	x = prompt("Squares per side ? (1-64)");
+	$(".square").remove();
 	return x;
 }
 
@@ -57,20 +58,33 @@ function defaultPaint(){
 function clearGrid(){
 	x = numberSquares(); 
 	buildGrid(x);
-	$(".square").remove();
 	defaultPaint();
 }
 
 function greyPaint(){
 	x = numberSquares();
-	$(".square").remove();
 	buildGrid(x);
 	$(".square").mouseover(function(){
 		$(this).css("background-color",'grey');
 	});
 }
 
-
+function randomColors(){
+	letters = '0123456789ABCDEF'.split('');
+	color = '#';
+	for (var i = 0; i < 6; i++) {
+		color+=letters[Math.floor(Math.random()*16)];
+	};
+	return color;
+}
+function colorPaint(){
+	x = numberSquares();
+	buildGrid(x);
+	$(".square").mouseover(function(){
+		color = randomColors();
+		$(this).css("background-color",color);
+	});
+};
 
 
 
