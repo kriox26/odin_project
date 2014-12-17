@@ -86,13 +86,10 @@ function colorPaint(){
 	});
 };
 
-
-
-
-
-
-
-
-
-
-
+function blackPaint(){
+	x = numberSquares();
+	buildGrid(x);
+	$(".square").mouseover(function(){
+		$(this).css("background-color",'black');
+	});
+}
