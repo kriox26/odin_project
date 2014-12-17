@@ -1,104 +1,71 @@
 *{
 	font-family: Verdana;
 }
-.container{
-	margin-left: auto;
-	margin-right:auto;
+.heading{
+	font-size: 25px;
+	text-align:center;
 }
-/*Heading styles*/
-	.heading{
-		font-size: 32px;
-		color: #9900FF;
-		width: 420px;
-		position:relative;
-		left:36%;
-		margin-bottom:20px;
-		margin-top: 5px;
-		text-align:center;
-		height: 100px;
-		border-radius: 110px 110px 0 0;
-		-moz-border-radius: 110px 110px 0 0;
-		-webkit-border-radius: 110px 110px 110px 110px;
-		-webkit-transition: all 0.1s ease-in;
-		background-color: #909090;
-		opacity: 0.5;
-	}
-	.heading > p{
-		padding-top:30px;
-	}
-
 /*Navigation bar*/
-	.navbar{
-		list-style-type: none;
-		display:block;
-		position: relative;
-		margin-left: auto;
+	.nbar{
 		text-align:center;
+		margin-left: auto;
 		margin-right: auto;
 	}
-	ul{
-		position: relative;
-		/*left: 25%;*/
-	}
-	li {
-		margin: 5px 5px 5px 5px;
-		display:inline;
-		position:relative;
+	table{
+		margin-right:auto;
+		margin-left: auto;
+		margin-top:30px;
 	}
 	a{
-		width: 150px;
+		font-size: 17px;
 		height: 30px;
-		position:relative;
+		opacity: 0.75;
+		width: 100px;
+		background-color: #3333FF;
 		border-radius: 6px;
-		background-color: #330099;
-		padding-top: 5px;
-		text-decoration: none;
-		opacity: 0.5;
 		color: #FFFFFF;
-		float:left;
-		margin-left: 5px;
-		margin-right: 5px;
+		text-decoration: none;
 		text-align:center;
+		margin-right: 5px;
+		margin-left: 5px;
+		padding: 10px;
 	}
-
-/*Second navbar*/
-	.second-navbar{
-		margin-top: 30px;
-		/*left:12%;*/
-		position:relative;
-		margin-bottom: 30px;
-	}
-
-/*Grid styles*/
-	.grid{
-		height: 960px;
-		width: 960px;
-		margin-left: auto;
+/*Grid system*/
+	.wrapper{
+		height:960px;
+		width:960px;
+		margin-left:auto;
+		margin-top: 40px;
 		margin-right:auto;
-		display: block;
-		border-color: 'black';
-		border:2px;
-		clear: left;
+		display:block;
 	}
 	.square{
-		background-color: #330099;
-		margin: 0px;
-		margin-left: 2px;
-		margin-right:2px;
-		margin-bottom: 1px;
-		margin-top: 1px;
 		display:inline-block;
+		background-color: #3399FF;
+		border-color: #000000;
+		border-left-width: 2px;
+		border-right-width: 2px;
+		border-bottom-width: 2px;
+		border-top-width: 2px;
+		margin: 0px;
 	}
-/*Footer styles*/
-	#footer{
+/*Footer*/
+	.footer{
+		font-size:15px;
+		color: #00000F;
 		text-align:center;
 		margin-left: auto;
-		margin-top: 90px;
-		margin-bottom: 47px;
 		margin-right: auto;
-		font-size: 11px;
-		color: #404040;
+		margin-top: 30px;
+		margin-bottom: 30px;
 	}
 	i{
-		color: #0033FF;
+		color: #909090;
 	}
+
+
+
+
+
+
+

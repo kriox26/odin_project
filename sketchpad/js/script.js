@@ -1,100 +1,79 @@
 $(document).ready(function(){
-	//buttons efects
-		$("#buttonb").mouseover(function(){
-			$("#buttonb").fadeTo('fast',1);
+	//Animations for the buttons
+		$("#black").mouseover(function(){
+			$("#black").fadeTo('fast',1);
 		});
-		$("#buttong").mouseover(function(){
-			$("#buttong").fadeTo('fast',1);
+		$("#tilde").mouseover(function(){
+			$("#tilde").fadeTo('fast',1);
 		});
-		$("#buttonc").mouseover(function(){
-			$("#buttonc").fadeTo('fast',1);
+		$("#color").mouseover(function(){
+			$("#color").fadeTo('fast',1);
 		});
-		$("#buttont").mouseover(function(){
-			$("#buttont").fadeTo('fast',1);
-		});
-		$("#buttonb").mouseleave(function(){
-			$("#buttonb").fadeTo('fast',0.5);
-		});
-		$("#buttong").mouseleave(function(){
-			$("#buttong").fadeTo('fast',0.5);
-		});
-		$("#buttonc").mouseleave(function(){
-			$("#buttonc").fadeTo('fast',0.5);
-		});
-		$("#buttont").mouseleave(function(){
-			$("#buttont").fadeTo('fast',0.5);
+		$("#grey").mouseover(function(){
+			$("#grey").fadeTo('fast',1);
 		});
 		$("#clear").mouseover(function(){
 			$("#clear").fadeTo('fast',1);
 		});
-		$("#make").mouseover(function(){
-			$("#make").fadeTo('fast',1);
+		$("#black").mouseleave(function(){
+			$("#black").fadeTo('fast',0.75);
+		});
+		$("#tilde").mouseleave(function(){
+			$("#tilde").fadeTo('fast',0.75);
+		});
+		$("#grey").mouseleave(function(){
+			$("#grey").fadeTo('fast',0.75);
+		});
+		$("#color").mouseleave(function(){
+			$("#color").fadeTo('fast',0.75);
 		});
 		$("#clear").mouseleave(function(){
-			$("#clear").fadeTo('fast',0.5);
+			$("#clear").fadeTo('fast',0.75);
 		});
-		$("#make").mouseleave(function(){
-			$("#make").fadeTo('fast',0.5);
-		});
-		$(".heading").mouseover(function(){
-			$(".heading").fadeTo('fast',1);
-		});
-		$(".heading").mouseleave(function(){
-			$(".heading").fadeTo('fast',0.5);
-		});
-	//grid program starts here	
-	buildGrid(24);
-	defaultPaint();
+		buildGrid(16);
+		defaultPaint();
 });
 
-function squares(){
-	x = prompt("How many squares per side?(1-64)");
-	$(".square").remove();
+function numberSquares(){
+	x = prompt("Squares per side ? (1-64)");
 	return x;
 }
 
 function buildGrid(size){
-	sqrw = Math.floor(960/size)-4;
-	sqrh = Math.floor(960/size)-5;
+	box = Math.floor(960 / size);
 	for (var i = 0; i < (size*size); i++) {
-		$(".grid").append('<div class="square"></div>')
+		$(".wrapper").append('<div class="square"></div>');
 	};
-	$(".square").css("width",sqrw);
-	$(".square").css("height",sqrh);
+	$(".square").css("width",box);
+	$(".square").css("height",box);
 }
 
 function defaultPaint(){
 	$(".square").mouseover(function(){
-		$(this).css("background-color",'black');
+		$(this).css("background-color",'white');
 	});
-};
+}
 
 function clearGrid(){
-	x = squares();
-	buildGrid(x)
+	x = numberSquares(); 
+	buildGrid(x);
+	$(".square").remove();
 	defaultPaint();
 }
 
 function greyPaint(){
-	x= squares();
+	x = numberSquares();
+	$(".square").remove();
 	buildGrid(x);
 	$(".square").mouseover(function(){
 		$(this).css("background-color",'grey');
 	});
-};
+}
 
-function colorPaint(){
-	x = squares();
-	buildGrid(x);
-	redColor = Math.floor(Math.random()*256);
-	blueColor = Math.floor(Math.random()*256)
-	greenColor = Math.floor(Math.random()*256)
-	color = "#" + redColor.toHex() + greenColor.toHex() + blueColor.toHex();
-	window.alert(color);
-	$(".square").mouseover(function(){
-		$(this).css("background-color",color);
-	});
-};
+
+
+
+
 
 
 
