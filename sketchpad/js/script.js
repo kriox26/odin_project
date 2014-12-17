@@ -36,6 +36,9 @@ $(document).ready(function(){
 
 function numberSquares(){
 	x = prompt("Squares per side ? (1-64)");
+	if(x < 0){
+		x = prompt("The number must be higher than 0!");
+	}
 	$(".square").remove();
 	return x;
 }
@@ -45,7 +48,7 @@ function buildGrid(size){
 	for (var i = 0; i < (size*size); i++) {
 		$(".wrapper").append('<div class="square"></div>');
 	};
-	$(".square").css("width",box);
+$(".square").css("width",box);
 	$(".square").css("height",box);
 }
 
