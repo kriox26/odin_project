@@ -1,6 +1,10 @@
 *{
 	font-family: Verdana;
 }
+.container{
+	margin-left: auto;
+	margin-right:auto;
+}
 /*Heading styles*/
 	.heading{
 		font-size: 32px;
@@ -22,6 +26,7 @@
 	.heading > p{
 		padding-top:30px;
 	}
+
 /*Navigation bar*/
 	.navbar{
 		list-style-type: none;
@@ -33,7 +38,7 @@
 	}
 	ul{
 		position: relative;
-		left: 25%;
+		/*left: 25%;*/
 	}
 	li {
 		margin: 5px 5px 5px 5px;
@@ -55,18 +60,40 @@
 		margin-right: 5px;
 		text-align:center;
 	}
+
 /*Second navbar*/
 	.second-navbar{
 		margin-top: 30px;
-		left:12%;
+		/*left:12%;*/
 		position:relative;
+		margin-bottom: 30px;
+	}
+
+/*Grid styles*/
+	.grid{
+		height: 960px;
+		width: 960px;
+		margin-left: auto;
+		margin-right:auto;
+		/*display: block;*/
+		background-color: #404040;
+		clear: left;
+	}
+	.square{
+		background-color: #808080;
+		margin: 0px;
+		margin-left: 2px;
+		margin-right:2px;
+		margin-bottom: 1px;
+		margin-top: 1px;
+		display:inline-block;
 	}
 /*Footer styles*/
 	#footer{
 		text-align:center;
 		margin-left: auto;
-		margin-top: 30px;
-		margin-bottom: 30px;
+		margin-top: 90px;
+		margin-bottom: 47px;
 		margin-right: auto;
 		font-size: 11px;
 		color: #404040;
