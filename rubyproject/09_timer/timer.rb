@@ -7,7 +7,7 @@ class Timer
 
 	def time_string(*args)
 		hours = @seconds / 3600
-		remainder = @seconds % 3600
-		sprintf("%02d:%02d:%02d", hours , remainder/60 , remainder%60)
+		min_sec = @seconds % 3600
+		sprintf("%02d:%02d:%02d", hours , min_sec/60 , min_sec%60)
 	end
 end
