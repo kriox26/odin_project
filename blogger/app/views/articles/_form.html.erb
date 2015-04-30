@@ -1,4 +1,4 @@
-<%= form_for(@article) do |f| %>
+<%= form_for(@article, html: {multipart: true}) do |f| %>
   <ul>
     <% @article.errors.full_messages.each do |error| %>
       <li>
@@ -18,6 +18,16 @@
   <p>
     <%= f.label :body %><br />
     <%= f.text_area :body %>
+  </p>
+
+  <p>
+  	<% if @article.image.exists? %>
+		<%= image_tag @article.image.url(:thumb) %><br />
+  	<% end %>
+  </p>
+  <p>
+	<%= f.label :image, "Attach your image" %>
+	<%= f.file_field :image %>
   </p>
 
   <p>

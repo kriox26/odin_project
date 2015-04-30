@@ -4,6 +4,7 @@
 		<%= link_to tag.name, tag_path(tag) %>
 	<% end %>
 </p>
+<p> <%= image_tag @article.image.url %></p>
 <p><%= @article.body %></p>
 <%= link_to "Back to articles list", articles_path %>
 <%= render partial: 'comments/form' %>
