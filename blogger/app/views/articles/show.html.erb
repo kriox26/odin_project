@@ -8,8 +8,10 @@
 <p><%= @article.body %></p>
 <%= link_to "Back to articles list", articles_path %>
 <%= render partial: 'comments/form' %>
-<%= link_to "Edit", edit_article_path(@article) %>
-<%= link_to "delete",article_path(@article), method: :delete,
-            data: {confirm: "Do you really want to delete?"} %>
+<% if logged_in? %>
+	<%= link_to "Edit", edit_article_path(@article) %>
+	<%= link_to "delete",article_path(@article), method: :delete,
+				data: {confirm: "Do you really want to delete?"} %>
+<% end %>
 <h3>Comments (<%= @article.comments.size %>)</h3>
 <%= render partial: 'articles/comment', collection: @article.comments %>
