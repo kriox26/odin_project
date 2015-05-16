@@ -21,10 +21,8 @@
 # Get from the command line the encryption key
 key = ARGV.first
 key = key.to_i
-# check for the size of the key
-if key > 26
+# just in case the size of the key is bigger than 26
   key = key % 26
-end
 #Get string from user
 print "String to encrypt: "
 string = STDIN.gets.chomp()
