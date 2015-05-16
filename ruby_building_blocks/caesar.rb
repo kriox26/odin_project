@@ -35,10 +35,8 @@ string.length().times do |i|
       # call to parse_letter with upcase, we do this to mantain their case
       string[i] = parse_letter(90, string[i], key)
     else
-      if is_lower?(string[i])
-        # same but with downcase
-        string[i] = parse_letter(122, string[i], key)
-      end
+      # same thing but with lower case
+      string[i] = parse_letter(122, string[i], key)
     end
   end 
 end
