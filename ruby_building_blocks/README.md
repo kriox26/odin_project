@@ -1,6 +1,6 @@
 # Building Blocks
 
-Basic programming problems to solve in ruby, from [Projects: Advanced Building Blocks](http://www.theodinproject.com/ruby-programming/advanced-building-blocks).
+Basic programming problems to solve in ruby, from [Projects: Building Blocks](http://www.theodinproject.com/ruby-programming/building-blocks).
 
 
 ### Caesar cipher
@@ -27,7 +27,7 @@ Run this: `ruby substrings.rb`
 
 # Advanced Building Blocks
 
-Basic programming problems to solve in ruby, from [Projects: Advanced Building Blocks](http://www.theodinproject.com/ruby-programming/advanced-building-blocks).
+A couple of more advanced(but still basic) programming problems, from [Projects: Advanced Building Blocks](http://www.theodinproject.com/ruby-programming/advanced-building-blocks).
 
 
 ### Bubble Sort
