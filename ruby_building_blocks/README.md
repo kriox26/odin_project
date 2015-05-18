@@ -35,7 +35,7 @@ A couple of more advanced(but still basic) programming problems, from [Projects:
 You should run something like this: `ruby bubble_sort.rb`
 
 * `#bubble_sort(array_to_sort)` Takes an array as an argument and returns a sorted array(ascending order).
-* `#bubble_sort_by(array_to_sort)` Sorts an array but accepting a block. The block should take two arguments which represent the two elements currently being compared. Expect that the block's return will be similar to the spaceship operator you learned about before -- if the result of the block is negative, the element on the left is "smaller" than the element on the right. 0 means they are equal. A positive result means the left element is greater. ""'
+* `#bubble_sort_by(array_to_sort)` Sorts an array but accepting a block. The block should take two arguments which represent the two elements currently being compared. Expect that the block's return will be similar to the spaceship operator you learned about before -- if the result of the block is negative, the element on the left is "smaller" than the element on the right. 0 means they are equal. A positive result means the left element is greater.
 
 
 ### Enumerable methods
