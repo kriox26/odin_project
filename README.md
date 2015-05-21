@@ -1,3 +1,3 @@
 Odin projects
 ====
-All working projects from theodinproject.com courses.
+Several projects from different courses of [The Odin Project(TOP)](http://www.theodinproject.com/courses) course list.
