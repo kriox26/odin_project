@@ -149,7 +149,6 @@ end
 class Player
   # I'll only need to read his mark, no need to change it
   attr_reader :name, :mark
-  # We will get and set if he or she is a winner or losser
   def initialize(name, mark)
     @name = name
     @mark = mark
