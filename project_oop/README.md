@@ -16,14 +16,23 @@ Name of player 1(mark= X): Agustin
 
 Name of player 2(mark= O): Matias
 |
+
 | 1 | 2 | 3   The positions to play on the tic-tac-toe board are
+
 |---+---+---  represented by the numbers 1 - 9 as shown in the
+
 | 4 | 5 | 6   figure at the left.
+
 |---+---+---  To place an 'X' or 'O' in a certain position, simply
+
 | 7 | 8 | 9   enter the number corresponding to that position.
+
 |
+
 |
+
 `
+
 
 Here is a sample output for the first two moves:
 `
