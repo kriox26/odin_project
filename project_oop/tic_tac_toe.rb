@@ -1,7 +1,7 @@
 class Game
   @@welcome = <<-END.gsub(/^\s+\|/, '')
    |
-   | 1 | 2 | 3   The positions to play on the tic-tac-toe board are
+   | 1 | 2 | 3   This is the brid used to play tic tac toe, the positions are
    |---+---+---  represented by the numbers 1 - 9 as shown in the
    | 4 | 5 | 6   figure at the left.
    |---+---+---  To place an 'X' or 'O' in a certain position, simply
