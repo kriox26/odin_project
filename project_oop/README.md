@@ -11,7 +11,7 @@ You should run the game like this: `$ ruby tic_tac_toe.rb `
 When the game starts, it ask you for the name of two players, the player number 1 will have the mark X and the player number two the mark O.
 Then, the welcome message will appear: 
 `
-Name of player 1(mark= X): Agustin
+Name of player 1(mark= X): Agustin\n
 Name of player 2(mark= O): Matias
 |
 | 1 | 2 | 3   The positions to play on the tic-tac-toe board are
