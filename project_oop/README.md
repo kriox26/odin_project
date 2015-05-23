@@ -8,7 +8,7 @@ You should run the game like this: `$ ruby tic_tac_toe.rb `
 
 ### Game play
 
-When the game starts, it ask you for the name of two players, the player number 1 will have the mark X and the player number two the mark O.
+When the game starts, it'll ask you for the name of the two players, player number 1 will have the mark X and player number two the mark O.
 Then, the welcome message will appear: 
 ```
 Name of player 1(mark= X): Agustin
@@ -45,4 +45,4 @@ Matias, input position to mark: 1
    |
 ```
 
-Once you finish, it will tell you if it was a draw, if not it will tell you name of the winner. Enjoy!!!
+Once you finish, it'll tell you if it was a draw, or the name of the winner. Enjoy!!!
