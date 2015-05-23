@@ -14,7 +14,7 @@ Then, the welcome message will appear:
 Name of player 1(mark= X): Agustin
 Name of player 2(mark= O): Matias
 |
-| 1 | 2 | 3   This is the brid used to play tic tac toe, the positions are
+| 1 | 2 | 3   This is the board used to play tic tac toe, the positions are
 |---+---+---  represented by the numbers 1 - 9 as shown in the
 | 4 | 5 | 6   figure at the left.
 |---+---+---  To place an 'X' or 'O' in a certain position, simply
