@@ -1,7 +1,7 @@
 class Game
   @@welcome = <<-END.gsub(/^\s+\|/, '')
    |
-   | 1 | 2 | 3   This is the brid used to play tic tac toe, the positions are
+   | 1 | 2 | 3   This is the board used to play tic tac toe, the positions are
    |---+---+---  represented by the numbers 1 - 9 as shown in the
    | 4 | 5 | 6   figure at the left.
    |---+---+---  To place an 'X' or 'O' in a certain position, simply
@@ -9,11 +9,13 @@ class Game
    |
    |
   END
-  def initialize()
+  def initialize
     create_grid_and_players
   end
 
+  private
   def create_grid_and_players
+    # game board
     @board = [' ',' ',' ',' ',' ',' ',' ',' ',' ', ' ']
     print 'Name of player 1(mark= X): '
     name = gets.chomp
@@ -23,6 +25,35 @@ class Game
     @player2 = Player.new(name,"O")
     @result = ''
     @moves = 0
+  end
+
+  public
+  def play
+    while true
+      # run the game
+      play_game
+      # if the answer is Y, the loop will continue executing
+      break unless again?
+    end
+  end
+
+  private
+  def play_game
+    display_welcome_message
+    # execute the while until a draw or someone wins
+    while !winner?(@board)
+      @board = @player1.make_move(@board)
+      @moves += 1
+      # check in case player 1 made the winning move
+      break if winner?(@board)
+      print_board_to_screen(@board)
+      @board = @player2.make_move(@board)
+      @moves += 1
+      # check in case player 2 made the winning move
+      break if winner?(@board)
+      print_board_to_screen(@board)
+    end
+    end_of_game(@board)
   end
 
   def print_board_to_screen(board)
@@ -39,38 +70,19 @@ class Game
     puts print_board 
   end
 
-  def play
-    while true
-      play_game
-      break unless again?
-    end
-  end
-  private
-  def play_game
-    display_welcome_message
-    while !winner?(@board)
-      @board = @player1.make_move(@board)
-      @moves += 1
-      break if winner?(@board)
-      print_board_to_screen(@board)
-      @board = @player2.make_move(@board)
-      @moves += 1
-      break if winner?(@board)
-      print_board_to_screen(@board)
-    end
-    end_of_game(@board)
-  end
-
   def display_welcome_message
     puts @@welcome
   end
 
   def winner?(board)
     if @moves >= 9
+      # when is in here means that all cells of the board are complete, and nobody won
       @result = 'draw'
       return true
     else
+      # only start checking for possible winners after 5 moves, cause before it's not possible
       if @moves >= 5
+	# load a hash of all wining scenarios
 	posibilities = { 1=>[1,3,4] , 2=>[3] , 3=>[2,3] , 4=>[1] , 7=>[1] }
 	posibilities.each do |index, values|
 	  # if check_posibilities returns false, keep going, else break
@@ -81,10 +93,15 @@ class Game
     return false
   end
 
+=begin
+   This method checks for 3 adyacent cells of the same mark. 
+   for example, if cell 1, 5 and 9 have the same mark, let's say X
+   then the player with mark X will win the game
+=end
   def check_posibilities(board, position, posibilities)
     posibilities.each do |i|
-      # check if each position of the different adds are equal
       if board[position]!=' ' && board[position] == board[position + i] && board[position] == board[position + i + i]
+	# in case we have a winner, set @result = winner
         update_winner(board[position])
 	return true
       end
@@ -146,7 +163,7 @@ class Player
 
   private
   def get_move(board)
-    print self.name + ", input position to"
+    print self.name + ", position to"
     while true
       print ' mark: '
       position = gets.chomp.to_i
@@ -158,6 +175,5 @@ class Player
   end
 end
 
-
-game = Game.new()
+game = Game.new
 game.play
