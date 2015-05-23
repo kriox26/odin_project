@@ -13,7 +13,6 @@ Then, the welcome message will appear:
 
 `
 Name of player 1(mark= X): Agustin
-
 Name of player 2(mark= O): Matias
 |
 
