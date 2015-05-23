@@ -126,7 +126,6 @@ class Game
       end
     end
   end
-  public
 end
 
 
