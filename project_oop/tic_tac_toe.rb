@@ -150,7 +150,9 @@ class Player
     while true
       print ' mark: '
       position = gets.chomp.to_i
-      return position if board[position] == ' '
+      if board[position] == ' ' && position != 0
+	return position 
+      end
       print 'Try again, position to'
     end
   end
