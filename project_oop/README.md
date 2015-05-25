@@ -45,4 +45,19 @@ Matias, input position to mark: 1
    |
 ```
 
-Once you finish, it'll tell you if it was a draw, or the name of the winner. Enjoy!!!
+Once you finish, it'll tell you if it was a draw, or the name of the winner. And ask you if you wanna play again, like this:
+```
+Matias, position to mark: 4
+   |
+   | O |   | X
+   |---+---+---
+   | O | X | X
+   |---+---+---
+   | O |   |
+   |
+   |
+The winner is: Matias. Congratulations!!!
+Do you want to play again(y/n)?
+```
+
+Have fun!!!
