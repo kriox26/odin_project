@@ -54,6 +54,9 @@ module Mastermind
 
   def check_code(code)
     # Checks if each color in guess is available in COLORS
+    if code == []
+      return false
+    end
     code.each do |element|
       return false if !(COLORS.include?(element))
     end

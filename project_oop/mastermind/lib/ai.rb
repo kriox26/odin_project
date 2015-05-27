@@ -3,8 +3,8 @@ class PlayerAI < Player
   attr_writer :last_rating
   def initialize
     reset_values
-    @score = 0
     @name = AI_NAMES[rand(7)]
+    @score = 0
   end
 
   def human?
