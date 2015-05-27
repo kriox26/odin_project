@@ -3,7 +3,7 @@ class PlayerAI < Player
   attr_writer :last_rating
   def initialize
     reset_values
-    @name = AI_NAMES[rand(7)]
+    @name = AI_NAMES.sample
     @score = 0
   end
 

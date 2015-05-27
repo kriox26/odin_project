@@ -1,6 +1,6 @@
 module Mastermind
   # Define constants
-  AI_NAMES = [ "HAL 9000", "T-1000", "R2-D2", "Optimus Prime", "Agent Smith", "Wall-E", "Skynet"]
+  AI_NAMES = [ "HAL 9000", "T-1000", "R2-D2", "Optimus Prime", "Agent Smith", "Wall-E", "Skynet", "Sheldon Cooper"]
 
   COLORS = [:blue, :red, :cyan, :yellow, :green, :magenta]
 
@@ -55,6 +55,9 @@ module Mastermind
   def check_code(code)
     # Checks if each color in guess is available in COLORS
     if code == []
+      return false
+    end
+    if code.length < 4
       return false
     end
     code.each do |element|
