@@ -120,7 +120,11 @@ class MastermindGame
     if @ai_player.score < @human_player.score
       puts "Sorry, it seems that you lost, you were #{ @human_player.score - @ai_player.score } points close"
     else
-      puts "Congratulions!!! You won by #{ @ai_player.score - @human_player.score } points!"
+      if @ai_player.score == @human_player.score
+	puts "It's a draw!!!'"
+      else
+	puts "Congratulions!!! You won by #{ @ai_player.score - @human_player.score } point/s!"
+      end
     end
   end
 

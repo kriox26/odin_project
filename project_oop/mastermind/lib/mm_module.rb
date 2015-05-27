@@ -43,6 +43,7 @@ module Mastermind
   end
 
   def input_secret_code(name)
+    print_top_message(false)
     puts "Hey #{ name }. Enter secret code as a comma separated list(e.g: red, blue, cyan, magenta): "
     loop do
       secret_code = gets.chomp.split.join.split(',').map(&:to_sym)
