@@ -14,3 +14,5 @@ Here are a few screenshot of a game between a human player and the AI:
 ![human playing](https://github.com/kriox26/odin_project/blob/master/project_oop/mastermind/imgs/human_playing.png)
 ![ai playing](https://github.com/kriox26/odin_project/blob/master/project_oop/mastermind/imgs/ai_playing.png)
 ![end of the game](https://github.com/kriox26/odin_project/blob/master/project_oop/mastermind/imgs/end_of_game.png)
+
+That's it, have fun!!
