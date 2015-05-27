@@ -1,27 +1,40 @@
+# Has two boards, the board with all guesses and the bord with the score of those guesses
 class Board
   attr_reader :guess_board, :score_board
   def initialize(*args)
     create_boards
   end
 
-  private
-  def create_boards
-    @guess_board = Array.new(12){ Array.new(4) { :default } }
-    @score_board = Array.new(12){ Array.new(4) { :default } }
-  end
-
-  def print_boards
+  def print_boards(code,ai_playing)
     print_top_lines
     print_center_boards
+    if ai_playing
+      print_secret_code(code)
+    end
   end
 
   def update_board(guess, score, move)
     @guess_board[move] = guess
     @score_board[move] = score
-    print_boards
   end
 
+  private
+  def create_boards
+    @guess_board = Array.new(12){ Array.new(4) }
+    @guess_board.each do |element|
+      element.each do |color|
+        color = :default
+      end
+    end
+    @score_board = Array.new(12){ Array.new(4) }
+    @score_board.each do |element|
+      element.each do |color|
+        color = :default
+      end
+    end
+  end
   def print_top_lines
+    print "\t\t"
     print SPLIT[:nw_corner]
     4.times do |i|
       5.times do
@@ -49,8 +62,9 @@ class Board
   end
 
   def print_center_boards
-    print SPLIT[:vertical]
     12.times do |i|
+      print "\t\t"
+      print SPLIT[:vertical]
       4.times do |j|
 	print ' '
 	print '   '.colorize(:background => @guess_board[i][j])
@@ -59,8 +73,8 @@ class Board
       end
       print '  '
       print SPLIT[:vertical]
-      4.times do |j|
-	print '  '.colorize(:background => @score_board[i][j])
+      4.times do |k|
+	print '  '.colorize(:background => @score_board[i][k])
 	print SPLIT[:vertical]
       end
       puts
@@ -74,6 +88,7 @@ class Board
   end
 
   def print_middle_lines
+    print "\t\t"
     print SPLIT[:w_divide]
     4.times do |i|
       5.times do
@@ -100,6 +115,7 @@ class Board
   end
 
   def print_bottom_lines
+    print "\t\t"
     print SPLIT[:sw_corner]
     4.times do |k|
       5.times do

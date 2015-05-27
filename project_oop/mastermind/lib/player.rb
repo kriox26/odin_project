@@ -1,21 +1,30 @@
+# Class for a human player, ai player is child of this class
 class Player
-  attr_reader :name
+  attr_accessor :score, :name
   def initialize
     print 'Player name: '
     @name = gets.chomp
+    @score = 0
   end
 
-  private
   def make_guess
     puts 'Enter your guess as a comma separated list(e.g: red, blue, cyan, magenta): '
-    loop { 
-    guess = gets.chomp.split.join.split(',').map(&:to_sym)
-    return guess if check_guess(guess)
-    puts 'That\'s not a valid guess, try again, and remember the example: '
-    }
+    loop do
+      guess = gets.chomp.split.join.split(',').map(&:to_sym)
+      return guess if check_code(guess)
+      puts 'That\'s not a valid guess, try again, and remember the example: '
+    end
   end
 
-  def check_guess(guess)
-    # Should check if all the colors inside the array of guess are available on the array of COLORS
+  def human?
+    true
+  end
+
+  def ai?
+    false
+  end
+
+  def update_score(score)
+    @score += score
   end
 end
