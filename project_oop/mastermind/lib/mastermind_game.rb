@@ -62,7 +62,7 @@ class MastermindGame
       @move = 0
       while @move <12 && !decipher
 	# top messages are different for human players
-	print_top_message(@current_player.ai?)
+	print_top_message(@current_player.ai?,@ai_player.name)
 	# if the current_player(codebreaker) is an ai, the board will also show the secret code
 	@board.print_boards(@secret_code, @current_player.ai?)
 	# make_guess handles if it is an ai or a human player 
@@ -85,11 +85,11 @@ class MastermindGame
 	@move += 1
       end
       # each player has his/her own score
-      print_top_message(@current_player.ai?)
+      print_top_message(@current_player.ai?,@ai_player.name)
       # if the current_player(codebreaker) is an ai, the board will also show the secret code
       @board.print_boards(@secret_code, @current_player.ai?)
       @current_player.update_score(@move)
-      print_score_of_player
+      print_score_of_player(decipher)
       # change from human player to ai or from ai to human player
       update_current_player
       # resets the board because the next round starts
@@ -104,7 +104,12 @@ class MastermindGame
     initialize_board_and_code(@current_player.ai?)
   end
 
-  def print_score_of_player
+  def print_score_of_player(decipher)
+    if !decipher
+      puts "Too bad, the code was: "
+      puts
+      print_secret_code(@secret_code)
+    end
     puts "End of round. Score of #{ @current_player.name } is: #{ @move }"
     loop do
       puts "Press enter to continue"
@@ -118,12 +123,12 @@ class MastermindGame
     puts "#{ @human_player.name } score: #{ @human_player.score }"
     puts "#{ @ai_player.name } score: #{ @ai_player.score }"
     if @ai_player.score < @human_player.score
-      puts "Sorry, it seems that you lost, you were #{ @human_player.score - @ai_player.score } points close"
+      puts "Sorry you lost! you were #{ @human_player.score - @ai_player.score } point/s close!"
     else
       if @ai_player.score == @human_player.score
 	puts "It's a draw!!!'"
       else
-	puts "Congratulions!!! You won by #{ @ai_player.score - @human_player.score } point/s!"
+	puts "Congratulions!!! You've just defeated #{ @ai_player.name }' by #{ @ai_player.score - @human_player.score } point/s!"
       end
     end
   end

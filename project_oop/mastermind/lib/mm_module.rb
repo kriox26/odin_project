@@ -22,12 +22,12 @@ module Mastermind
   Now let's play Mastermind!!
   WELCOME
 
-  def print_top_message(is_ai)
+  def print_top_message(is_ai,name_of_ai)
     system "clear"
     puts "\t\t\t\tMastermind Game".colorize(:color=>:light_white,:background=>:light_magenta)
     puts
     if is_ai
-      puts "The AI is playing!"
+      puts "#{ name_of_ai } is playing!!"
     else
       puts "You are playing!"
       puts "Colors available: #{'       '.colorize(:background=>COLORS[0])}#{ '       '.colorize(:background=>COLORS[1])}#{ '       '.colorize(:background=>COLORS[2]) }#{ '       '.colorize(:background=>COLORS[3]) }#{ '       '.colorize(:background=>COLORS[4]) }#{ '       '.colorize(:background=>COLORS[5]) }"
@@ -43,7 +43,7 @@ module Mastermind
   end
 
   def input_secret_code(name)
-    print_top_message(false)
+    print_top_message(false,'name')
     puts "Hey #{ name }. Enter secret code as a comma separated list(e.g: red, blue, cyan, magenta): "
     loop do
       secret_code = gets.chomp.split.join.split(',').map(&:to_sym)

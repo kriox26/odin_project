@@ -30,7 +30,7 @@ class PlayerAI < Player
 
   # Make guess handles first guess and any other guess
   def make_guess
-    if @first_guess.nil?
+    if @first_guess==[]
       return make_first_guess
     else
       # update the last guess, get a random sample from the set of available codes
@@ -63,10 +63,12 @@ class PlayerAI < Player
 
   # When the guess is the first one, we need to choose something like red,red,blue,blue
   def make_first_guess
+    first_rand = :default
+    second_rand = :default
     loop do
       first_rand = COLORS[rand(6)]
       second_rand = COLORS[rand(6)]
-      break if first_rand !=second_rand
+      break if first_rand != second_rand
     end
     @first_guess = [first_rand,first_rand,second_rand,second_rand]
     @last_guess = @first_guess
