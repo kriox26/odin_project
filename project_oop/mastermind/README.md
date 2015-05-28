@@ -22,9 +22,9 @@ The AI you will play against use a slightly different implementation of [Donald 
 I've change the sixth step because it's computationally expensive. Here is the algorithm: 
 ```
 1. Create the set of 1296 possible codes. We have six colors that can be distributed in 4 positions, 
-so it's 6^4=1296 possible permutations.(allowing duplicates)
+   so it's 6^4=1296 possible permutations.(allowing duplicates)
 2. Start with an initial guess like RED,RED,BLUE,BLUE. Only two colors, there are some cases where if 
-you choose more thant 2 colors, you won't win the game in less than five moves.
+   you choose more thant 2 colors, you won't win the game in less than five moves.
 3. Play the guess to get a response.
 4. In case the response is four black pegs, you won the game. Otherwise continue to step 5
 5. Remove from S any code that would not give the same result if it(the guess) would be the secret code.
