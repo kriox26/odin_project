@@ -2,7 +2,7 @@ module Mastermind
   # Define constants
   AI_NAMES = [ "HAL 9000", "T-1000", "R2-D2", "Optimus Prime", "Agent Smith", "Wall-E", "Skynet", "Sheldon Cooper"]
 
-  COLORS = [:blue, :red, :cyan, :yellow, :green, :magenta]
+  COLORS = [:blue, :red, :white, :yellow, :green, :magenta]
 
   SPLIT = { vertical:  "\u2551", horizontal: "\u2550", cross:     "\u256c",
 	    nw_corner: "\u2554", ne_corner:  "\u2557", se_corner: "\u255d",
@@ -31,7 +31,7 @@ module Mastermind
     else
       puts "You are playing!"
       puts "Colors available: #{'       '.colorize(:background=>COLORS[0])}#{ '       '.colorize(:background=>COLORS[1])}#{ '       '.colorize(:background=>COLORS[2]) }#{ '       '.colorize(:background=>COLORS[3]) }#{ '       '.colorize(:background=>COLORS[4]) }#{ '       '.colorize(:background=>COLORS[5]) }"
-      puts "Choose with:        blue   red    cyan  yellow green magenta"
+      puts "Choose with:        blue   red   white  yellow green magenta"
     end
     puts
     puts "\t\t       #{ 'Guess board'.colorize(:light_red) }\t    #{ 'Score board'.colorize(:light_red) }"
@@ -54,16 +54,34 @@ module Mastermind
 
   def check_code(code)
     # Checks if each color in guess is available in COLORS
-    if code == []
+    if code == [] || code.length < 4
       return false
     end
-    if code.length < 4
-      return false
-    end
+    parse_colors(code)
     code.each do |element|
       return false if !(COLORS.include?(element))
     end
     return true
+  end
+
+  def parse_colors(code)
+    code.map! do |color|
+      if color == :r
+	:red
+      elsif color == :b
+	:blue
+      elsif color == :w
+	:white
+      elsif color == :g
+	:green
+      elsif color == :y
+	:yellow
+      elsif color == :m
+	:magenta
+      else
+	color
+      end
+    end
   end
 
   def rate_guess(guess,secret_code,from_ai=false)

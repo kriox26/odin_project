@@ -34,6 +34,8 @@ class PlayerAI < Player
       return make_first_guess
     else
       # update the last guess, get a random sample from the set of available codes
+      puts "#{ @name  } is thinking..."
+      sleep 1
       @last_guess = @set_of_codes.sample 
       return @last_guess
     end

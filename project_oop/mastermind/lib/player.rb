@@ -8,7 +8,7 @@ class Player
   end
 
   def make_guess
-    puts 'Enter your guess as a comma separated list(e.g: red, blue, cyan, magenta): '
+    puts 'Enter your guess as a comma separated list(e.g: red, blue, white, magenta or r,b,w,m): '
     loop do
       guess = gets.chomp.split.join.split(',').map(&:to_sym)
       return guess if check_code(guess)
