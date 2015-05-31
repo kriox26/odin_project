@@ -27,12 +27,7 @@ class MastermindGame
 	end
       end
     end
-    loop do
-      # Just for holding the command line
-      print "Press enter to begin playing!"
-      enter = gets
-      break if enter == "\n"
-    end
+	message_until_enter("Press enter to begin playing!")
   end
 
   def initialize_players_and_code
@@ -67,11 +62,7 @@ class MastermindGame
 	@board.print_boards(@secret_code, @current_player.ai?)
 	# make_guess handles if it is an ai or a human player 
 	guess = @current_player.make_guess
-	loop do
-	  puts "Press enter to rate guess"
-	  enter = gets
-	  break if enter == "\n"
-	end
+	message_until_enter("Press enter to rate guess")
 	# rate_guess returns the score of current guess and if the guess is equal to the secret code or not
 	rating, decipher = rate_guess(guess,@secret_code)
 	if @current_player.ai?
@@ -111,11 +102,7 @@ class MastermindGame
       print_secret_code(@secret_code)
     end
     puts "End of round. Score of #{ @current_player.name } is: #{ @move }"
-    loop do
-      puts "Press enter to continue"
-      enter = gets
-      break if enter == "\n"
-    end
+	message_until_enter("Press enter to continue")
   end
 
   def end_of_game
@@ -134,18 +121,18 @@ class MastermindGame
   end
 
   def again?
-    loop do
-      print "Do you want to play again?(y/n): "
-      response = gets.chomp
-      case response
-      when "y","yes"
-	initialize_game
-	return true
-      when "n","no"
-	return false
-      else
-	puts "That's not a valid answer, try again!".colorize(:color=>:light_red)
-      end
-    end
+	loop do
+	  print "Do you want to play again?(y/n): "
+	  response = gets.chomp
+	  case response
+	  when "y","yes"
+		initialize_game
+		return true
+	  when "n","no"
+		return false
+	  else
+		puts "That's not a valid answer, try again!".colorize(:color=>:light_red)
+	  end
+	end
   end
 end
