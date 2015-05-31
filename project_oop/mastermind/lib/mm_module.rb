@@ -115,6 +115,16 @@ module Mastermind
     end
   end
 
+  def message_until_enter(message)
+    catch :press_enter do
+	  loop do 
+		puts message
+		enter = gets
+	    throw :press_enter if enter == "\n"
+	  end
+	end
+  end
+
   def print_secret_code(code)
     print "\t\t"
     print SPLIT[:nw_corner]
