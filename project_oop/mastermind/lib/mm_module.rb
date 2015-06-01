@@ -44,11 +44,11 @@ module Mastermind
 
   def input_secret_code(name)
     print_top_message(false,'name')
-    puts "Hey #{ name }. Enter secret code as a comma separated list(e.g: red, blue, cyan, magenta): "
+    puts "Hey #{ name }. Enter secret code as a comma separated list(e.g: r,b,w,m): "
     loop do
       secret_code = gets.chomp.split.join.split(',').map(&:to_sym)
       return secret_code if check_code(secret_code)
-      puts 'That\'s not a valid code, try again, and remember the example: '
+	  puts 'That\'s not a valid code, try again, and remember the example: '.colorize(:red)
     end
   end
 
