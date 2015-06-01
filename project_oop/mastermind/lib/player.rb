@@ -12,7 +12,7 @@ class Player
     loop do
       guess = gets.chomp.split.join.split(',').map(&:to_sym)
       return guess if check_code(guess)
-      puts 'That\'s not a valid guess, try again, and remember the example: '
+	  puts 'That\'s not a valid guess, try again, and remember the example: '.colorize(:red)
     end
   end
 
