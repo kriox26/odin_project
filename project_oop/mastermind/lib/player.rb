@@ -2,29 +2,29 @@
 class Player
   attr_accessor :score, :name
   def initialize
-    print 'Player name: '
-    @name = gets.chomp
-    @score = 0
+	print 'Player name: '
+	@name = gets.chomp
+	@score = 0
   end
 
   def make_guess
-    puts 'Enter your guess as a comma separated list(e.g: red, blue, white, magenta or r,b,w,m): '
-    loop do
-      guess = gets.chomp.split.join.split(',').map(&:to_sym)
-      return guess if check_code(guess)
+	puts 'Enter your guess as a comma separated list(e.g: red, blue, white, magenta or r,b,w,m): '
+	loop do
+	  guess = gets.chomp.split.join.split(',').map(&:to_sym)
+	  return guess if check_code(guess)
 	  puts 'That\'s not a valid guess, try again, and remember the example: '.colorize(:red)
-    end
+	end
   end
 
   def human?
-    true
+	true
   end
 
   def ai?
-    false
+	false
   end
 
   def update_score(score)
-    @score += score
+	@score += score
   end
 end
