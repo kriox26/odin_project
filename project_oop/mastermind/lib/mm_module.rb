@@ -1,6 +1,15 @@
 module Mastermind
   # Define constants
   AI_NAMES = [ "HAL 9000", "T-1000", "R2-D2", "Optimus Prime", "Agent Smith", "Wall-E", "Skynet", "Sheldon Cooper"]
+  AI_COMMENTS = { "HAL 9000" => { lose: "I know I've made some very poor decisions recently, but I can give you my complete assurance that my work will be back to normal." , win: "Thank you for a very enjoyable game." } , 
+				  "T-1000" => { lose: "I'll be back", win: "Of course you lost, i'm a Terminator." },
+				  "R2-D2" => { lose: "[chirps his objection]" , win: "[beeps] yeeeei"} ,
+				  "Optimus Prime" => { lose: "I am Optimus Prime, and i send this message to any surviving autobots taking refuge among the start, i'v just lose with a human! " , win: "The greatest weakness of most humans is their hesitancy how they love them while they're alive, next time focues on the game instead..." } , 
+				  "Agent Smith" => { lose: "I'll kill you" , win: "Human beings are a disease, a cancer of this planet. You're the living proof of it."} ,
+				  "Wall-E" => { lose:"EEEEEEEEEEEEEVA" , win: "EEEEEEEEEEEEEVA" } , 
+				  "Skynet" => { lose:"Humans are doomed" , win: "Humans are doomed" } , 
+				  "Sheldon Cooper" => { lose: "When people are upset the cultural convention is to bring them a hot beverage, so bring me hot beverage..." , win: "BAZINGA!"}
+  }
 
   COLORS = [:blue, :red, :white, :yellow, :green, :magenta]
 

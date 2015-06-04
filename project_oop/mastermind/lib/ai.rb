@@ -1,4 +1,4 @@
-# class for the ai player, name is random 
+#ai_player, name is random 
 class PlayerAI < Player
   attr_writer :last_rating
   def initialize
@@ -24,11 +24,11 @@ class PlayerAI < Player
 
   # Make guess handles first guess and any other guess
   def make_guess
+	puts "#{ @name  } is thinking..."
 	if @first_guess==[]
 	  return make_first_guess
 	else
 	  # update the last guess, get a random sample from the set of available codes
-	  puts "#{ @name  } is thinking..."
 	  sleep 1
 	  @last_guess = @set_of_codes.sample 
 	  return @last_guess
@@ -74,6 +74,7 @@ class PlayerAI < Player
 	  break if first_rand != second_rand
 	end
 	@first_guess = [first_rand,first_rand,second_rand,second_rand]
+	sleep 1
 	@last_guess = @first_guess
 	return @first_guess
   end

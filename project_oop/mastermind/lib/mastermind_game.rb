@@ -62,7 +62,6 @@ class MastermindGame
 		@board.print_boards(@secret_code, @current_player.ai?)
 		# make_guess handles if it is an ai or a human player 
 		guess = @current_player.make_guess
-		message_until_enter("Press enter to rate guess")
 		# rate_guess returns the score of current guess and if the guess is equal to the secret code or not
 		rating, decipher = rate_guess(guess,@secret_code)
 		if @current_player.ai?
@@ -108,12 +107,16 @@ class MastermindGame
 	puts "#{ @human_player.name } score: #{ @human_player.score }"
 	puts "#{ @ai_player.name } score: #{ @ai_player.score }"
 	if @ai_player.score < @human_player.score
-	  puts "Sorry you lost! you were #{ @human_player.score - @ai_player.score } point/s close!"
+	  puts "#{ @ai_player.name } says: #{ AI_COMMENTS[@ai_player.name][:win] }".colorize(:light_blue)
+	  puts
+	  puts "You were #{ @human_player.score - @ai_player.score } point/s close!"
 	else
 	  if @ai_player.score == @human_player.score
 		puts "It's a draw!!!'"
 	  else
-		puts "Congratulions!!! You've just defeated #{ @ai_player.name }' by #{ @ai_player.score - @human_player.score } point/s!"
+		puts "#{ @ai_player.name } says: #{ AI_COMMENTS[@ai_player.name][:lose] }".colorize(:red)
+		puts
+		puts "You won by #{ @ai_player.score - @human_player.score } point/s!"
 	  end
 	end
   end
