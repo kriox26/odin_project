@@ -23,7 +23,7 @@ module Mastermind
   how many rounds you wanna play(it must be an even number). One player becomes the codemaker, the other the codebreaker. The codemaker 
   chooses a pattern of four code pegs. Duplicates are allowed, so the player could even choose four code pegs of the same color. The 
   chosen pattern is placed in the four holes covered by the shield, visible to the codemaker but not to the codebreaker. The codebreaker 
-  may have a very hard time finding out the code.
+  may have a very hard time in finding out the code.
   The codebreaker tries to guess the pattern, in both order and color, within twelve turns. Each guess is made by placing a row of code 
   pegs on the decoding board. Once placed, the codemaker provides feedback by placing from zero to four key pegs in the small holes of 
   the row with the guess. A colored or black key peg is placed for each code peg from the guess which is correct in both color and position. 
