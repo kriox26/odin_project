@@ -51,6 +51,7 @@ class Hangman
 	print "Player name: "
 	@player_name = gets.chomp
 	@figure      = HangmanDisplay.new
+	@loaded_game = ''
 	generate_secret_word
 	play
   end
@@ -66,7 +67,11 @@ class Hangman
 	  puts "Sorry #{ @player_name } you lost!"
 	else
 	  puts "Great job #{@player_name}!"
+	  if @loaded_game != ''
+		delete(@loaded_game)
+	  end
 	end
+	exit
   end
 
   def generate_secret_word
@@ -82,29 +87,25 @@ class Hangman
 	return @secret_word
   end
 
-  def check_input(input)
-	if input.length == 1
-	  return true if is_letter?(input)
-	else
-	  return true if input[/[a-zA-Z]+/] == input
-	end
-	puts "Wrong input, it must be a letter or a word with only letters. Try again".colorize(:red)
-	return false
-  end
   def make_and_rate
 	# the user can input a word or a char, if input is larger that one it's a word, else it's a char
-	puts "You can guess with a single character or with a word, if you guess the right word you win, if not you'll lose a life and keep playing. And remember, it's case sensitive. If you want to save the game, simply type: save"
+	puts INPUT_MESSAGE
 	guess = ''
 	loop do
-	  print "Word or char: "
+	  print "Your choice: "
 	  guess = gets.chomp
 	  break if check_input(guess)
 	end
 	if guess.length > 1
 	  if guess.downcase != 'save'
-		return check_word(guess)
+		if guess.downcase != 'quit'
+		  return check_word(guess)
+		else
+		  quit_game
+		end
 	  else
 		save_game
+		return false
 	  end
 	else
 	  return check_char(guess)
@@ -147,57 +148,43 @@ class Hangman
 	@wrong_chars << char
   end
 
-  def get_name_to_save
-	name = player_name + ".yml"
-	loop do
-	  break if !File.exists?(name)
-	  name = player_name + rand(100).to_s + ".yml"
-	end
-	return name
-  end
   def save_game
 	name 	  = get_name_to_save
 	content   = [self]
     game_info = YAML::dump(content)
 	File.open(name, "w+").puts(game_info)
 	puts "Game has been saved as #{name}!"
-	quit_game
+	sleep 2
   end
 
-  def get_games_available
-	games = Dir["./*.yml"] 
-	if games != []
-	  games.collect! do |elem|
-		elem.gsub!(/\.\//, '')
-		elem.gsub!(/\.yml/, '')
-	  end
+  def load_data(name)
+	if File.exists?(name)
+	  game_info        = File.read(name)
+	  content          = YAML::load(game_info)
+	  self.player_name = content[0].player_name
+	  self.wrong_chars = content[0].wrong_chars
+	  self.right_chars = content[0].right_chars
+	  self.secret_word = content[0].secret_word
+	  self.figure 	   = content[0].figure
+	  @loaded_game = name
+	  puts "Game load, let's play!"
+	  play
+	else
+	  puts "Game doesn't exist, try again!".colorize(:red)
 	end
-	return games
-  end
-  def name_message(message)
-    print message
-	name = gets.chomp
-	name = name + ".yml"
-	return name
   end
   def load_game
 	games_available = get_games_available
 	if games_available != []
-	  display(games_available) { |elem| print "#{elem}, "}
-	  puts
-	  loop do
-		name = name_message("Name of the game to load: ")
-		if File.exists?(name)
-		  game_info        = File.read(name)
-		  content          = YAML::load(game_info)
-		  self.player_name = content[0].player_name
-		  self.wrong_chars = content[0].wrong_chars
-		  self.right_chars = content[0].right_chars
-		  self.secret_word = content[0].secret_word
-		  self.figure 	   = content[0].figure
-		  puts "Game load, let's play!"
-		  play
+	  if games_available.length > 1
+		  display(games_available) { |elem| print "#{elem}, "}
+		puts
+		loop do
+		  name = name_message("Name of the game to load: ")
+		  load_data(name)
 		end
+	  else
+		load_data(games_available[0] + ".yml")
 	  end
 	else
 	  puts "There are no games to load! Returning to the menu..."
@@ -216,7 +203,7 @@ class Hangman
 	  loop do 
 	    name = name_message("Name of the game to remove: ")
 		if File.exists?(name)
-		  File.delete(name)
+		  delete(name)
 		  puts "Deleted!"
 		  removed += 1
 		else
@@ -238,8 +225,4 @@ class Hangman
 	menu
   end
 
-  def quit_game
-	puts "Bye!!".colorize(:magenta)
-	exit
-  end
 end
