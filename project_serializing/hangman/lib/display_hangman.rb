@@ -1,7 +1,4 @@
 class HangmanDisplay
-  PIECES = ["⎹" , "⎹" , "⎹" , "ᒥ" , "⎺" , "⎺" , "⎺" , "ᒣ" , "☹" , "╱" ,"╿" , "╲" , "╱" , "╲" ]
-  SEPARATORS = { bottom:"‾‾‾‾" , bottom2:"ーー"  }
-
   def initialize
 	@hanging = Array.new(14," ")
   end
@@ -30,18 +27,13 @@ class HangmanDisplay
   def display_bottom
     puts "\t#{SEPARATORS[:bottom]}"
   end
-  def display(some_array)
-	some_array.each do |elem|
-	  print " #{elem}"
-	end
-  end
   def display_table(right_chars,wrong_chars)
 	# display table with information, moves remaining are @hanging.length - wrong_chars.length
 	print "Right guesses:".colorize(:green)  
-	display(right_chars)
+	display(right_chars){ |elem| print " #{elem}" }
 	puts
 	print "Wrong guesses:".colorize(:red) 
-	display(wrong_chars)
+	display(wrong_chars){|elem| print " #{elem}"}
 	puts
 	print "Moves remaining:".colorize(:blue)
 	print " #{(14 - wrong_chars.length)}"
