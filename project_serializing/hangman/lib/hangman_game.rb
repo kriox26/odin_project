@@ -125,10 +125,16 @@ class Hangman
 	if @secret_word.include?(char) 
 	  if !@right_chars.include?(char)
 		update_corrects(char)
+	  else
+		puts "You already choose that character, choose another!"
+		sleep 1
 	  end
 	else
 	  if !@wrong_chars.include?(char)
 		update_wrongs(char)
+	  else
+		puts "You already choose that character, choose another!"
+		sleep 1
 	  end
 	end
 	@secret_word == @right_chars
