@@ -1,16 +1,23 @@
 class Hangman
-  attr_accessor :player_name, :player_lives
+  attr_accessor :player_name
   def initialize
 	menu
   end
 
   private
   def display_menu
-	system("clear")
-    puts "For now, only play, input 1: "
+    puts "Choose an option:"
+	puts
+	print "\t1.".colorize(:color => :light_blue , :background => :light_white)
+	puts " Play game"
+	print "\t2.".colorize(:color => :light_blue , :background => :light_white)
+	puts " Load a game"
+	print "\t3.".colorize(:color => :light_blue , :background => :light_white)
+	puts " Exit"
   end
   def menu
     # Should display the menu with: play new game, load game and quit, then ask you that you wanna do
+	system("clear")
 	loop do
 	  display_menu
 	  choice = gets.chomp
@@ -34,25 +41,23 @@ class Hangman
 	# ask for players name . Generate secret word
 	# play while the player doesn't guess the word or he/she still has lives
 	print "Player name: "
-	@name = gets.chomp
+	@player_name = gets.chomp
 	@figure = HangmanDisplay.new
 	generate_secret_word
 	play
   end
 
   def play
-	moves = 0
-	while moves < 11
-	  @figure.display_game_board(@right_chars,@wrong_chars, moves)
+	while @wrong_chars.length < 14
+	  @figure.display_game_board(@right_chars,@wrong_chars)
 	  break if make_and_rate
-	  moves += 1
 	end
-	if moves == 11
-	  puts "Sorry, you lost! The word was: "
-	  puts @secret_word
+	@right_chars = @secret_word
+	@figure.display_game_board(@right_chars,@wrong_chars)
+	if @wrong_chars.length == 14
+	  puts "Sorry #{ @player_name } you lost!"
 	else
-	  @figure.display_game_board(@right_chars,@wrong_chars, moves)
-	  puts "Great job!"
+	  puts "Great job #{@player_name}!"
 	end
   end
 
@@ -60,11 +65,12 @@ class Hangman
 	# take a sample from the array with each word of the dictionary
 	loop do
 	  @secret_word = File.readlines("dictionary.txt").sample.split(//)
-	  break if @secret_word.length > 4 && @secret_word.length < 11
+	  break if @secret_word.length > 4 && @secret_word.length < 15
 	end
-	@right_chars = Array.new((@secret_word.length-1), "_")
-	@wrong_chars = []
 	@secret_word.delete_at(@secret_word.length-1)
+	@right_chars = Array.new(@secret_word.length, "_")
+	update_corrects(@secret_word[0])
+	@wrong_chars = []
 	p @secret_word
 	return @secret_word
   end
@@ -82,7 +88,12 @@ class Hangman
   end
 
   def check_word(word)
-	word.split(//) == @secret_word
+	if !(word.split(//) == @secret_word)
+	  @wrong_chars << word
+	  return false
+	else
+	  return true
+	end
   end
 
   def check_char(char)
