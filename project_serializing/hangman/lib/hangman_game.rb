@@ -88,6 +88,7 @@ class Hangman
 	else
 	  return true if input[/[a-zA-Z]+/] == input
 	end
+	puts "Wrong input, it must be a letter or a word with only letters. Try again".colorize(:red)
 	return false
   end
   def make_and_rate
