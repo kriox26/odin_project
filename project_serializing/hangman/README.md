@@ -13,7 +13,7 @@ In case you decide to load game, a list of all saved games will appear, you then
 and you will return to state of that game.
 Have fun!
 ```
-To play simple do what the program asks you!!
+To play simply do what the program asks you!!
 Here are a few screenshot of the game: 
 
 ![inital_message](https://github.com/kriox26/odin_project/blob/master/project_serializing/hangman/imgs/initial_message.png)
