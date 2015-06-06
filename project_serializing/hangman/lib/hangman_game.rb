@@ -8,11 +8,11 @@ class Hangman
   def display_menu
     puts "Choose an option:"
 	puts
-	print "\t1.".colorize(:color => :light_blue , :background => :light_white)
+	print "\t1.".colorize(:color => :light_blue)
 	puts " Play game"
-	print "\t2.".colorize(:color => :light_blue , :background => :light_white)
+	print "\t2.".colorize(:color => :light_blue)
 	puts " Load a game"
-	print "\t3.".colorize(:color => :light_blue , :background => :light_white)
+	print "\t3.".colorize(:color => :light_blue)
 	puts " Exit"
   end
   def menu
