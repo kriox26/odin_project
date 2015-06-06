@@ -173,15 +173,19 @@ class Hangman
 	end
 	return games
   end
+  def name_message(message)
+    print message
+	name = gets.chomp
+	name = name + ".yml"
+	return name
+  end
   def load_game
 	games_available = get_games_available
 	if games_available != []
 	  display(games_available) { |elem| print "#{elem}, "}
 	  puts
 	  loop do
-		print "Name of the game to load: "
-		name = gets.chomp
-		name = name + ".yml"
+		name = name_message("Name of the game to load: ")
 		if File.exists?(name)
 		  game_info        = File.read(name)
 		  content          = YAML::load(game_info)
@@ -195,7 +199,7 @@ class Hangman
 		end
 	  end
 	else
-	  puts "There are no games to load!"
+	  puts "There are no games to load! Returning to the menu..."
 	  sleep 1.5
 	  menu
 	end
@@ -209,9 +213,7 @@ class Hangman
 	  removed = 0 
 	  total = games.length
 	  loop do 
-	    print "Name of the game to remove: "
-		name = gets.chomp
-		name = name + ".yml"
+	    name = name_message("Name of the game to remove: ")
 		if File.exists?(name)
 		  File.delete(name)
 		  puts "Deleted!"
@@ -220,7 +222,7 @@ class Hangman
 		  puts "That file doesn't exist!"
 		end
 		if removed == total
-		  puts "No more games to remove, going back to the menu"
+		  puts "No more games to remove, going back to the menu..."
 		  sleep 1.5
 		  break
 		end
@@ -229,7 +231,7 @@ class Hangman
 		break if choice.downcase == 'n'
 	  end
 	else
-	  puts "No games to remove!"
+	  puts "No games to remove! Returning to the menu..."
 	  sleep 1.5
 	end
 	menu
