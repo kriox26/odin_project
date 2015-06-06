@@ -177,6 +177,7 @@ class Hangman
 	games_available = get_games_available
 	if games_available != []
 	  display(games_available) { |elem| print "#{elem}, "}
+	  puts
 	  loop do
 		print "Name of the game to load: "
 		name = gets.chomp
@@ -195,7 +196,7 @@ class Hangman
 	  end
 	else
 	  puts "There are no games to load!"
-	  sleep 2
+	  sleep 1.5
 	  menu
 	end
   end
@@ -205,6 +206,8 @@ class Hangman
 	if games != []
 	  display(games) { |elem| print "#{elem}, "}
 	  puts
+	  removed = 0 
+	  total = games.length
 	  loop do 
 	    print "Name of the game to remove: "
 		name = gets.chomp
@@ -212,8 +215,14 @@ class Hangman
 		if File.exists?(name)
 		  File.delete(name)
 		  puts "Deleted!"
+		  removed += 1
 		else
 		  puts "That file doesn't exist!"
+		end
+		if removed == total
+		  puts "No more games to remove, going back to the menu"
+		  sleep 1.5
+		  break
 		end
 		print "To continue removing, press enter, to go back to the menu type n and press enter: "
 		choice = gets.chomp
@@ -221,7 +230,7 @@ class Hangman
 	  end
 	else
 	  puts "No games to remove!"
-	  sleep 2
+	  sleep 1.5
 	end
 	menu
   end
