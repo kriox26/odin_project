@@ -207,7 +207,7 @@ class Hangman
 		  puts "Deleted!"
 		  removed += 1
 		else
-		  puts "That file doesn't exist!"
+		  puts "That file doesn't exist!".colorize(:red)
 		end
 		if removed == total
 		  puts "No more games to remove, going back to the menu..."
