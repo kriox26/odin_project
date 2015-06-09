@@ -201,7 +201,7 @@ module Mastermind
 	end
 	puts "You better be fast"
 	print_secret_code(secret_code)
-	sleep 1.2
+	sleep 0.8
   end
 
 end

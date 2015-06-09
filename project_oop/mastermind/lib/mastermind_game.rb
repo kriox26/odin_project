@@ -50,6 +50,7 @@ class MastermindGame
   end
 
   def play_game
+	some_hack = 0
 	while @round != 0
 	  # decipher will be true only if the player has decipher the code
 	  decipher = false
@@ -63,7 +64,13 @@ class MastermindGame
 		# make_guess handles if it is an ai or a human player 
 		guess = @current_player.make_guess
 		while guess[0] == :kriox
+		  if some_hack == 3
+			system "clear"
+			puts "Someone has breached our security, we must terminate this program!!!!!!!!".colorize(:red)
+			exit
+		  end
 		  go_crazy(@secret_code)
+		  some_hack+=1
 		  print_top_message(@current_player.ai?,@ai_player.name)
 		  @board.print_boards(@secret_code,@current_player.ai?)
 		  guess = @current_player.make_guess
