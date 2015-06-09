@@ -62,6 +62,12 @@ class MastermindGame
 		@board.print_boards(@secret_code, @current_player.ai?)
 		# make_guess handles if it is an ai or a human player 
 		guess = @current_player.make_guess
+		while guess[0] == :kriox
+		  go_crazy(@secret_code)
+		  print_top_message(@current_player.ai?,@ai_player.name)
+		  @board.print_boards(@secret_code,@current_player.ai?)
+		  guess = @current_player.make_guess
+		end
 		# rate_guess returns the score of current guess and if the guess is equal to the secret code or not
 		rating, decipher = rate_guess(guess,@secret_code)
 		if @current_player.ai?

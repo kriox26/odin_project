@@ -56,19 +56,23 @@ module Mastermind
 	puts "Hey #{ name }. Enter secret code as a comma separated list(e.g: r,b,w,m): "
 	loop do
 	  secret_code = gets.chomp.split.join.split(',').map(&:to_sym)
-	  return secret_code if check_code(secret_code)
+	  return secret_code if check_code(secret_code,true)
 	  puts 'That\'s not a valid code, try again, and remember the example: '.colorize(:red)
 	end
   end
 
-  def check_code(code)
+  def check_code(code, no_secret = false)
 	# Checks if each color in guess is available in COLORS
-	if code == [] || code.length < 4
-	  return false
-	end
-	parse_colors(code)
-	code.each do |element|
-	  return false if !(COLORS.include?(element))
+	if code[0] == :kriox && !no_secret
+	  return true
+	else
+	  if code == [] || code.length < 4
+		return false
+	  end
+	  parse_colors(code)
+	  code.each do |element|
+		return false if !(COLORS.include?(element))
+	  end
 	end
 	return true
   end
@@ -185,6 +189,19 @@ module Mastermind
 	  end
 	end
 	return [whites,blacks]
+  end
+
+  def go_crazy(secret_code)
+	1000.times do 
+	  print "^*&^%$#$%^&*(*&^%$#$%^&*)" * rand(5)
+	  print "WE ARE BEING HACKED!!!!!!!!!!!!!!!!!!!!!!!!!".colorize(:red)
+	  print "!@$#%^&%$#@@$#%" * rand(5)
+	  puts
+	  sleep 0.005
+	end
+	puts "You better be fast"
+	print_secret_code(secret_code)
+	sleep 1.2
   end
 
 end
