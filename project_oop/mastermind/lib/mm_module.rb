@@ -192,7 +192,7 @@ module Mastermind
   end
 
   def go_crazy(secret_code)
-	1000.times do 
+	500.times do 
 	  print "^*&^%$#$%^&*(*&^%$#$%^&*)" * rand(5)
 	  print "WE ARE BEING HACKED!!!!!!!!!!!!!!!!!!!!!!!!!".colorize(:red)
 	  print "!@$#%^&%$#@@$#%" * rand(5)
@@ -202,6 +202,33 @@ module Mastermind
 	puts "You better be fast"
 	print_secret_code(secret_code)
 	sleep 0.8
+  end
+
+  def break_prog
+    system "clear"
+    puts "Someone hacked our security, nuclear explosion is inevitable!!!".colorize(:red)
+	print "F".colorize(:red) * 30
+	print "U".colorize(:red) * 90
+	print "C".colorize(:red) * 4
+	print "K".colorize(:red) * 10
+	puts 
+	bomb= <<-BOMB 
+
+     _.-^^---....,,--
+ _--                  --_
+<                        >)
+|                         |
+ \._                   _./
+    ```--. . , ; .--'''
+          | |   |
+       .-=||  | |=-.
+       `-=#$%&%$#=-'
+          | ;  :|
+ _____.,-#%&$@%#&#~,._____ 
+					
+	BOMB
+	puts bomb
+	exit
   end
 
 end

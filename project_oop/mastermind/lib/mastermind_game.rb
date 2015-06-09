@@ -64,11 +64,7 @@ class MastermindGame
 		# make_guess handles if it is an ai or a human player 
 		guess = @current_player.make_guess
 		while guess[0] == :kriox
-		  if some_hack == 3
-			system "clear"
-			puts "Someone has breached our security, we must terminate this program!!!!!!!!".colorize(:red)
-			exit
-		  end
+		  break_prog if some_hack == 3
 		  go_crazy(@secret_code)
 		  some_hack+=1
 		  print_top_message(@current_player.ai?,@ai_player.name)
