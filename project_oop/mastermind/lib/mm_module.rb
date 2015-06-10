@@ -66,7 +66,7 @@ module Mastermind
 	if code[0] == :kriox && !no_secret
 	  return true
 	else
-	  if code == [] || code.length < 4
+	  if code == [] || code.length != 4 
 		return false
 	  end
 	  parse_colors(code)
