@@ -1,3 +1,4 @@
-Odin projects
+The Odin Project - Ruby Programming
 ====
-Several projects from different courses of [The Odin Project(TOP)](http://www.theodinproject.com/courses) course list.
+
+Here are all projects from [The Odin Project - Ruby Programming](http://www.theodinproject.com/ruby-programming) course.
