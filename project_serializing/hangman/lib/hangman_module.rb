@@ -1,7 +1,7 @@
 module HangmanGame
   PIECES = ["⎹" , "⎹" , "⎹" , "ᒥ" , "⎺" , "⎺" , "⎺" , "ᒣ" , "☹" , "╱" ,"╿" , "╲" , "╱" , "╲" ]
   SEPARATORS = { bottom:"‾‾‾‾" , bottom2:"ーー"  }
-  
+
   MENU_MESSAGE = <<-MENU
 Hey there, here is what you need to know about this particular Hagnman!
 When the game starts, you will be prompt with a menu, where you can choose one of three options.
@@ -27,7 +27,7 @@ These are the options you have:
   end
 
   def is_letter?(char)
-    char =~ /[A-Za-z]/
+	char =~ /[A-Za-z]/
   end
 
   def check_input(input)
@@ -61,7 +61,7 @@ These are the options you have:
   end
 
   def name_message(message)
-    print message
+	print message
 	name = gets.chomp
 	name = name + ".yml"
 	return name
