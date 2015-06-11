@@ -1,6 +1,7 @@
 # Twitter Spambot
 
-This is command line Twitter client, build from [JumpStart Lab Twitter Spambot's](http://tutorials.jumpstartlab.com/projects/microblogger.html) example. For [The Odin Project - Ruby on the Web](http://www.theodinproject.com/ruby-programming/ruby-on-the-web)
+This a is command line Twitter client, build from [JumpStart Lab Twitter Spambot's](http://tutorials.jumpstartlab.com/projects/microblogger.html) example. For [The Odin Project - Ruby on the Web](http://www.theodinproject.com/ruby-programming/ruby-on-the-web) project.
+
 Run `$ ruby micro_blogger.rb` in the main directory to begin.
 
 This are the few thins you can do(for doing them you must have a twitter account):
