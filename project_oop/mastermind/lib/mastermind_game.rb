@@ -57,34 +57,26 @@ class MastermindGame
 		# for keeping track were to put the guess in the guess board
 		@move = 0
 		while @move <12 && !decipher
-		  # top messages are different for human players
-		  print_top_message(@current_player.ai?,@ai_player.name)
-		  # if the current_player(codebreaker) is an ai, the board will also show the secret code
-		  @board.print_boards(@secret_code, @current_player.ai?)
+		  @board.print_screen(@current_player.ai?, @secret_code, @ai_player.name)
 		  # make_guess handles if it is an ai or a human player 
 		  guess = @current_player.make_guess
 		  while guess[0] == :kriox
 			break_prog if some_hack == 2
 			go_crazy(@secret_code)
 			some_hack+=1
-			print_top_message(@current_player.ai?,@ai_player.name)
-			@board.print_boards(@secret_code,@current_player.ai?)
+			@board.print_screen(@current_player.ai?, @secret_code, @ai_player.name)
 			guess = @current_player.make_guess
 		  end
 		  # rate_guess returns the score of current guess and if the guess is equal to the secret code or not
 		  rating, decipher = rate_guess(guess,@secret_code)
-		  if @current_player.ai?
-			# update the last rating and set of codes
-			@current_player.update_rating_and_codes(rating)
-		  end
+		  # update the last rating and set of codes
+		  @current_player.update_rating_and_codes(rating) if @current_player.ai?
 		  # update the board of current round
 		  @board.update_board(guess,rating,@move)
 		  @move += 1
 		end
 		# each player has his/her own score
-		print_top_message(@current_player.ai?,@ai_player.name)
-		# if the current_player(codebreaker) is an ai, the board will also show the secret code
-		@board.print_boards(@secret_code, @current_player.ai?)
+		@board.print_screen(@current_player.ai?, @secret_code, @ai_player.name)
 		@current_player.update_score(@move)
 		print_score_of_player(decipher)
 		# change from human player to ai or from ai to human player
@@ -130,19 +122,4 @@ class MastermindGame
 	  end
 	end
 
-	def again?
-	  loop do
-		print "Do you want to play again?(y/n): "
-		response = gets.chomp
-		case response
-		when "y","yes"
-		  initialize_game
-		  return true
-		when "n","no"
-		  return false
-		else
-		  puts "That's not a valid answer, try again!".colorize(:color=>:light_red)
-		end
-	  end
-	end
 end
