@@ -1,14 +1,7 @@
-class MastermindGame
+class MastermindGame < Game
   attr_accessor :current_player
   def initialize
 	initialize_game
-  end
-
-  def play
-	loop do
-	  play_game
-	  break unless again?
-	end
   end
 
   private
