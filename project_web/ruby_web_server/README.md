@@ -1,4 +1,4 @@
-## Command line Web Browser - From [The Odin Project - Ruby on the web]()
+## Command line Web Browser - From [The Odin Project - Ruby on the web](http://www.theodinproject.com/ruby-programming/ruby-on-the-web?ref=lc-pb)
 
 This is a very simple command line browser, you can issue GET and POST request and see the HTTP response of those requests.
 To run it you need to have two terminals opened, in the first one run `$ ruby multi_client_server.rb` to start the web server, and in the second
