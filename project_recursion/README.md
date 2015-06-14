@@ -7,7 +7,7 @@ Run `$ ruby fib.rb` to see the output of the fibonacci sequence.
 
 
 ####Merge sort
-* `#merge_sort(array)` - sorts the array using a recursive implementation of the [Merge Sort](https://www.youtube.com/watch?v=EeQ8pwjQxTM)
+* `#merge_sort(array)` - sorts the array using a recursive implementation of the [Merge Sort](https://www.youtube.com/watch?v=EeQ8pwjQxTM).
 * `#merge_arrays(left,right)` - merge left with right, from lower to higher numbers.
 Run `$ ruby merge.rb` to see the output of the sorted array.
 
