@@ -1,5 +1,5 @@
 def merge_sort(array)
-  return array if array.length == 1
+  return array if array.length <= 1
   half = array.length / 2
   merge_arrays(merge_sort(array[0..half-1]),merge_sort(array[half..-1]))
 end
