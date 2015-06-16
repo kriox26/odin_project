@@ -1,4 +1,3 @@
-require 'benchmark'
 def merge_sort(array)
   return array if array.length <= 1
   half = array.length / 2
@@ -13,12 +12,4 @@ def merge_arrays(left, right)
   result + left + right
 end
 
-array = []
-999999.times do |i|
-  array[i] = rand(50000)
-end
-Benchmark.bmbm do |bm|
-  bm.report("merge") do
-	merge_sort(array)
-  end
-end
+p merge_sort([9,5,0,0,1,-3,11,13,29,1000,24,15])
