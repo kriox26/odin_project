@@ -38,7 +38,7 @@ class BST
 	if !bst.left_child.nil?
 	  display_in_order(bst.left_child)
 	end
-	puts bst.value
+	print "#{bst.value}, "
 	if !bst.right_child.nil?
 	  display_in_order(bst.right_child)
 	end
@@ -46,7 +46,7 @@ class BST
 
   def bfs(x)
     queue = [@root]
-	while !queue.empy?
+	while !queue.empty?
 	  act_node = queue.shift
 	  return act_node.value if act_node.value == x
 	  queue << act_node.left_child if !act_node.left_child.nil?
@@ -81,10 +81,43 @@ class BST
 
 end
 
+def display_menu
+  par = <<-PARAGRAPH
+This are the things you can do with this BST:
+  1. Search for a value inside the using DFS algorithm
+  2. Search for a value inside the tree using BSF algorithm
+  3. Search for a value inside the tree using a recursive algorithm
+  4. Exit the program
+  PARAGRAPH
+  puts par
+end
+
 def create_tree
-  puts "Building the tree"
-  bst = BST.build_tree([5,7,8,2,4,9,10,12])
+  puts "Building the tree..."
+  bst = BST.build_tree([4,9,10,222,-3,-32,24,56,78,2,3,24])
   bst.display_in_order(bst.root)
+  puts "Done"
+  puts
+  loop do
+	display_menu
+	print "Your choice: "
+	choice = gets.chomp
+	case choice
+	when "1"
+	  print "Value to search for: " ; x = gets.chomp.to_i
+	  puts "Found!" if !bst.dfs(x).nil?
+	when "2"
+	  print "Value to search for: " ; x = gets.chomp.to_i
+	  puts "Found!" if !bst.bfs(x).nil?
+	when "3"
+	  print "Value to search for: " ; x = gets.chomp.to_i
+	  puts "Found!" if !bst.dfs_rec(x,bst.root).nil?
+	when "4"
+	  exit
+	else
+	  puts "Wrong input, try again."
+	end
+  end
 end
 
 create_tree
