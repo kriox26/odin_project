@@ -43,6 +43,42 @@ class BST
 	  display_in_order(bst.right_child)
 	end
   end
+
+  def bfs(x)
+    queue = [@root]
+	while !queue.empy?
+	  act_node = queue.shift
+	  return act_node.value if act_node.value == x
+	  queue << act_node.left_child if !act_node.left_child.nil?
+	  queue << act_node.right_child if !act_node.right_child.nil?
+	end
+	nil
+  end
+
+  def dfs(x)
+    queue = [@root]
+	while !queue.empty?
+	  act_node = queue.pop
+	  return act_node.value if act_node.value == x
+	  queue << act_node.left_child if !act_node.left_child.nil?
+	  queue << act_node.right_child if !act_node.right_child.nil?
+	end
+	nil
+  end
+
+  def dfs_rec(x,act_node)
+	if act_node == nil
+      return nil;
+    else
+	  return act_node.value if act_node.value == x
+	  if act_node.value < x
+		dfs_rec(x,act_node.right_child)
+	  else 
+		dfs_rec(x,act_node.left_child)
+	  end
+	end
+  end
+
 end
 
 def create_tree
