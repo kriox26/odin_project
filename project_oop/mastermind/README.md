@@ -1,6 +1,7 @@
 # Mastermind
 
 To start playing run this command on the home directory of the project: `$ ruby mastermind.rb`
+Before you should this you should install the Colorize gem: `$ gem install colorize`
 
 ### Game play
 
