@@ -1,3 +1,4 @@
+require 'benchmark/ips'
 def merge_sort(array)
   return array if array.length <= 1
   half = array.length / 2
@@ -5,11 +6,17 @@ def merge_sort(array)
 end
 
 def merge_arrays(left, right)
-  result = []
+  sorted = []
   until left.empty? or right.empty?
-	left.first <= right.first ? result << left.shift : result << right.shift
+	left.first <= right.first ? sorted << left.shift : sorted << right.shift
   end
-  result + left + right
+  sorted + left + right
 end
 
-p merge_sort([9,5,0,0,1,-3,11,13,29,1000,24,15])
+array = (0..50000).to_a.shuffle
+puts "50000 elements"
+Benchmark.ips do |bm|
+  bm.report("50000 elements") do
+	merge_sort(array)
+  end
+end
