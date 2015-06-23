@@ -24,7 +24,7 @@ class Hangman
 	  loop do
 		display_menu
 		puts
-		print "Choose with 1,2,3 or 4: " 
+		print "Choose with 1,2,3 or 4: "
 		choice = gets.chomp
 		case choice
 		when "1"
@@ -122,7 +122,7 @@ class Hangman
 	end
 
 	def check_char(char)
-	  if @secret_word.include?(char) 
+	  if @secret_word.include?(char)
 		if !@right_chars.include?(char)
 		  update_corrects(char)
 		else
@@ -204,9 +204,9 @@ class Hangman
 	  if games != []
 		display(games) { |elem| print "#{elem}, "}
 		puts
-		removed = 0 
+		removed = 0
 		total = games.length
-		loop do 
+		loop do
 		  name = name_message("Name of the game to remove: ")
 		  if File.exists?(name)
 			delete(name)
