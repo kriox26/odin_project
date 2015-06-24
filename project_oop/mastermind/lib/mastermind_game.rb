@@ -14,7 +14,7 @@ class MastermindGame < Game
 		# The number of rounds must be even, (2,4,6,8,etc)
 		print "How many rounds do you want to play(must be an even number)? "
 		@round = gets.chomp.to_i
-		if @round.is_a? Integer 
+		if @round.is_a? Integer
 		  if @round % 2 == 0 && @round != 0
 			break
 		  end
@@ -51,7 +51,7 @@ class MastermindGame < Game
 		@move = 0
 		while @move <12 && !decipher
 		  @board.print_screen(@current_player.ai?, @secret_code, @ai_player.name)
-		  # make_guess handles if it is an ai or a human player 
+		  # make_guess handles if it is an ai or a human player
 		  guess = @current_player.make_guess
 		  while guess[0] == :kriox
 			break_prog if some_hack == 2
