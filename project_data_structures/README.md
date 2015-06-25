@@ -1,4 +1,4 @@
-## [Data Structures and Algorithms](http://www.theodinproject.com/ruby-programming/data-structures-and-algorithms)
+## [Data Structures and Algorithms - TOP](http://www.theodinproject.com/ruby-programming/data-structures-and-algorithms)
 
 This is my implementation of a [Binary Search Tree](https://en.wikipedia.org/wiki/Binary_search_tree) using ruby. To run the program type this in the main directory: `$ ruby bst.rb`.
 When you run it, the following menu will be prompt:
