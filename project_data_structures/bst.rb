@@ -45,7 +45,7 @@ class BST
   end
 
   def bfs(x)
-    queue = [@root]
+	queue = [@root]
 	while !queue.empty?
 	  act_node = queue.shift
 	  return act_node.value if act_node.value == x
@@ -56,7 +56,7 @@ class BST
   end
 
   def dfs(x)
-    queue = [@root]
+	queue = [@root]
 	while !queue.empty?
 	  act_node = queue.pop
 	  return act_node.value if act_node.value == x
@@ -68,12 +68,12 @@ class BST
 
   def dfs_rec(x,act_node)
 	if act_node == nil
-      return nil;
-    else
+	  return nil;
+	else
 	  return act_node.value if act_node.value == x
 	  if act_node.value < x
 		dfs_rec(x,act_node.right_child)
-	  else 
+	  else
 		dfs_rec(x,act_node.left_child)
 	  end
 	end
@@ -84,9 +84,9 @@ end
 def display_menu
   par = <<-PARAGRAPH
 This are the things you can do with this BST:
-  1. Search for a value inside the using DFS algorithm
+  1. Search for a value inside the tree using DFS algorithm
   2. Search for a value inside the tree using BSF algorithm
-  3. Search for a value inside the tree using a recursive algorithm
+  3. Search for a value inside the tree using DFS recursive implementation
   4. Exit the program
   PARAGRAPH
   puts par
