@@ -1,9 +1,17 @@
 ## [Data Structures and Algorithms](http://www.theodinproject.com/ruby-programming/data-structures-and-algorithms)
 
 This is my implementation of a [Binary Search Tree](https://en.wikipedia.org/wiki/Binary_search_tree) using ruby. To run the program type this in the main directory: `$ ruby bst.rb`.
-When you run it, the following menu will be prompt: 
+When you run it, the following menu will be prompt:
 ```
+Building the tree...
+-32, -3, 2, 3, 4, 9, 10, 24, 24, 56, 78, 222, Done
 
+This are the things you can do with this BST:
+  1. Search for a value inside the tree using DFS algorithm
+  2. Search for a value inside the tree using BSF algorithm
+  3. Search for a value inside the tree using DFS recursive implementation
+  4. Exit the program
+Your choice:
 ```
 You can then choose any of those options.
 
