@@ -14,7 +14,6 @@ def merge_arrays(left, right)
 end
 
 array = (0..50000).to_a.shuffle
-puts "50000 elements"
 Benchmark.ips do |bm|
   bm.report("50000 elements") do
 	merge_sort(array)
