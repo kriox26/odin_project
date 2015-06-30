@@ -53,7 +53,7 @@ module Enumerable
   def my_inject(start = nil)
     start = self[0] if start.nil?
     previous_it = start
-    self.my_each { |element| previous_it = yield(element,previous_it) } 
+    self.my_each { |element| previous_it = yield(element,previous_it) }
     previous_it
   end
 
