@@ -1,4 +1,4 @@
-# Ruby building blocks, first project of Ruby programming course from odin_project
+# Copy of ruby building blocks, source code stays the same, i copied it to build some rspec
 # Matias Pan - https://github.com/kriox26/
 #
 # Implement this two methods for checking if a character is lower or upper case
@@ -37,7 +37,7 @@ string.length().times do |i|
       # same thing but with lower case
       string[i] = parse_letter(122, string[i], key)
     end
-  end 
+  end
 end
 # Print the encrypted string
 puts "Encryption: #{string}"
