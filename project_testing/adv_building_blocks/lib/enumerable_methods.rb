@@ -6,38 +6,49 @@ module Enumerable
     for element in self
       yield(element)
     end
+    self
   end
 
   def my_each_with_index
     i = 0
     self.my_each { |element| yield(element,i); i+=1 }
+    self
   end
 
   def my_select
-    self.my_each { |element| result << element if yield(element) }
+    result = []
+    self.my_each { |element| result << element if block_given? && yield(element) }
     result
   end
 
   def my_all?
-    self.my_each { |element| return false unless yield(element) }
+    self.my_each { |element| return false if !block_given? || !yield(element) }
+    true
   end
 
   def my_any?
-    self.my_each { |element| return true if yield(element) }
+    self.my_each { |element| return true if block_given? && yield(element) }
+    false
   end
 
   def my_none?
-    self.my_each { |element| return false if yield(element) }
+    self.my_each { |element| return false if block_given? && yield(element) }
+    true
   end
 
   def my_count
     count = 0
-    self.my_each { |element| count+=1 if yield(element) }
+    self.my_each { |element| count+= if block_given?
+                                       yield(element)? 1:0
+                                     else
+                                       1
+                                     end
+                                      }
     count
   end
 
   def my_map(proc = nil)
-    result[]
+    result = []
     if proc && block_given?
       self.my_each { |element| result << proc.call(yield(element)) }
     elsif proc && !block_given?
@@ -61,4 +72,3 @@ module Enumerable
     array.my_inyect(1) { |element, multiply| multiply * element}
   end
 end
-
