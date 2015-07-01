@@ -69,6 +69,6 @@ module Enumerable
   end
 
   def multiply_els(array)
-    array.my_inyect(1) { |element, multiply| multiply * element}
+    array.my_inject(1) { |element, multiply| multiply * element}
   end
 end
