@@ -10,17 +10,3 @@ begin
 rescue LoadError
 # no rspec available
 end
-# require 'rspec/core/rake_task'
-
-# task :default => :play
-
-# desc "Play tictactoe game"
-# task :play do
-#   ruby "-w lib/tic_tac_toe.rb"
-# end
-
-# desc "Run tests on tictactoe game"
-# RSpec::Core::RakeTask.new(:spec) do |t|
-#   t.rspec_opts = "-c -w"
-#   t.verbose = false
-# end
