@@ -3,7 +3,7 @@
 
 # Instead of doing a swap with a tmp variable, i wrote this method that does that for you
 def swap(value1, value2)
-  return value2, value1         
+  return value2, value1
 end
 
 def bubble_sort(array_to_sort)
@@ -45,4 +45,3 @@ sorted_array = bubble_sort_by(new_array) do |left,right|
   left.length - right.length
 end
 p sorted_array
-
