@@ -15,7 +15,6 @@ describe ConnectFour do
 	  expect(game).to be_an_instance_of ConnectFour
 	end
 
-	# some comment
 	it "initialize board and current player" do
 	  expect(game.p_playing).to eq :green
 	  expect(game.board).to be_an_instance_of Board
