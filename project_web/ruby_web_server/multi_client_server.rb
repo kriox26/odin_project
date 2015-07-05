@@ -12,7 +12,7 @@ def handle_request(request)
 end
 
 def h_GET(request)
-  file_to_load = request.split(" ")[1][0..-1] 
+  file_to_load = request.split(" ")[1][0..-1]
   if file_to_load == 'index.html'
 	return found_response(file_to_load)
   else
@@ -73,7 +73,7 @@ def get_header_body(request)
 end
 
 server = TCPServer.open(2000)
-loop { 
+loop {
   Thread.start(server.accept) do |client|
 	request = client.recv(500)
 	what_request = handle_request(request)

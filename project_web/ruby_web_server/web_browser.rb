@@ -13,7 +13,7 @@ end
 
 def handle_get
   print "File name to get: "
-  file = gets.chomp 
+  file = gets.chomp
   request = "GET " + file + " HTTP/1.1\r\n\r\n"
 end
 
@@ -42,7 +42,7 @@ loop {
 	when "1" then request  = handle_get
 	when "2" then request = handle_post
 	when "3" then exit
-	else 
+	else
 	  puts "Wrong input"
   end
   puts request
@@ -52,4 +52,3 @@ loop {
   puts headers
   puts body
 }
-
