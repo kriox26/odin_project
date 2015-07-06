@@ -1,7 +1,7 @@
 class ConnectFour
   PLAYERS = [:green , :yellow]
 
-  attr_accessor :p_playing, :board
+  attr_reader :p_playing, :board
 
   def initialize
 	@board = Board.new
