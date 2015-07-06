@@ -11,9 +11,9 @@ describe Board do
 	end
 
 	it "checks for the size of the board" do
-	  expect(board.board.length).to eq(7)
+	  expect(board.board.length).to eq(Board::ROWS)
 	  board.board.each do |i|
-		expect(i.length).to eq(6)
+		expect(i.length).to eq(Board::COLS)
 	  end
 	end
 
