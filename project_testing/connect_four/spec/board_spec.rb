@@ -19,4 +19,13 @@ describe Board do
 
   end
 
+  context "#clean_board" do
+
+	it "emptys every cell" do
+	  board.clean_board
+	  expect(board.board.count('  ')).to eq(board.board.size)
+	end
+
+  end
+
 end
