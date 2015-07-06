@@ -1,11 +1,11 @@
 class ConnectFour
   PLAYERS = [:green , :yellow]
 
-  attr_reader :p_playing, :board
+  attr_reader :current_player, :board
 
   def initialize
 	@board = Board.new
-	@p_playing = PLAYERS.first
+	@current_player = PLAYERS.first
   end
 
   def start
@@ -33,7 +33,7 @@ class ConnectFour
   end
 
   def switch_player
-	@p_playing = @p_playing == PLAYERS.first ? PLAYERS.last : PLAYERS.first
+	@current_player = @current_player == PLAYERS.first ? PLAYERS.last : PLAYERS.first
   end
 
 end

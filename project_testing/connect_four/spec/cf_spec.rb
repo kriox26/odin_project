@@ -19,7 +19,7 @@ describe ConnectFour do
 	end
 
 	it "initialize board and current player" do
-	  expect(game.p_playing).to eq :green
+	  expect(game.current_player).to eq :green
 	  expect(game.board).to be_an_instance_of Board
 	end
 
@@ -79,16 +79,16 @@ describe ConnectFour do
   context "#switch_player" do
 
 	it "switches from player 1 to player 2" do
-	  expect(game.p_playing).to eq(p1)
+	  expect(game.current_player).to eq(p1)
 	  game.switch_player
-	  expect(game.p_playing).to eq(p2)
+	  expect(game.current_player).to eq(p2)
 	end
 
 	it "switches from player 2 to player 1" do
 	  game.switch_player
-	  expect(game.p_playing).to eq(p2)
+	  expect(game.current_player).to eq(p2)
 	  game.switch_player
-	  expect(game.p_playing).to eq(p1)
+	  expect(game.current_player).to eq(p1)
 	end
   end
 
